@@ -33,6 +33,13 @@ public class DatumsHelferlein {
     }
     
     
+    public static String getDatumHeute() {
+        
+        final LocalDate heute = now();
+        return DATUMS_FORMATIERER.format( heute );
+    }
+    
+    
     /**
      * Konvertiert ein Datum vom Format {@code YYYY-MM-DD} ins Format {@code DD.MM.YYYY (Wochentag)}.
      * 

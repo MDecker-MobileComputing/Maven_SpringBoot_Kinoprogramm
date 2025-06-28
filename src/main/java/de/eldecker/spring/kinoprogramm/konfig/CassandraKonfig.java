@@ -13,6 +13,7 @@ import org.springframework.data.cassandra.core.cql.keyspace.CreateKeyspaceSpecif
 import org.springframework.data.cassandra.core.cql.keyspace.KeyspaceOption;
 import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories;
 
+
 /**
  * Konfiguration für Cassandra-Verbindung.
  */
@@ -24,6 +25,7 @@ public class CassandraKonfig extends AbstractCassandraConfiguration {
     @Value("${spring.cassandra.keyspace-name}")
     private String _keyspaceName;
 
+    
     @Override
     protected String getKeyspaceName() {
 
@@ -55,4 +57,5 @@ public class CassandraKonfig extends AbstractCassandraConfiguration {
                 .withSimpleReplication( 1 ) // Replication factor = 1
         );
     }    
+
 }

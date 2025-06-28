@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Kinoprogramm: Übersicht</title>
+    <meta charset="utf-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/kino-stil.css">
+</head>
+<body>
+
+    <h1>Kinoprogramm: Übersicht ab heute</h1>
+
+
+    <div th:each="tagMitProgramm : ${liste}">
+
+        <h3 th:text="${tagMitProgramm.datum}"></h3>
+
+        <div th:each="vorstellung : ${tagMitProgramm.getVorstellungenList()}">
+
+            <p>
+                <span class="fett">Vorstellung:</span>
+                <span th:text="${vorstellung.getTitel()}"></span>
+            </p>
+
+            <p>
+                <span class="fett">Beginn:</span>
+                <span th:text="${vorstellung.getStartzeit()}"></span>
+            </p>
+
+            <p>
+                <span class="fett">Dauer:</span>
+                <span th:text="${vorstellung.getDauerMinuten() + ' min'}"></span>
+            </p>            
+
+        </div>
+        <br><br>
+
+    </div>    
+
+</body>

@@ -15,7 +15,7 @@ import jakarta.validation.constraints.Pattern;
  * Ein Objekt dieser Klasse enthält die Vorstellung/Filmen
  * an einem bestimmten Tag. 
  */
-@Table
+@Table( "kinoprogramm" )
 public class KinoprogrammTable {
 
     /** Datum im Format {@code YYYY-MM-DD}, z.B. {@code 2025-06-28}. */

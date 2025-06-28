@@ -67,7 +67,7 @@ public class DemoDatenLader implements ApplicationRunner {
         
         final KinoprogrammTable programm = new KinoprogrammTable( datumMorgen );
         
-        final VorstellungUDF vorstellung = new VorstellungUDF( "Saat des Erbrechens VIII", 120, 19, 30 );
+        final VorstellungUDF vorstellung = new VorstellungUDF( "Saat des Erbrechens (Teil VIII)", 120, 19, 30 );
         programm.addVorstellung( vorstellung );
         
         _kinoProgrammRepo.save( programm );
