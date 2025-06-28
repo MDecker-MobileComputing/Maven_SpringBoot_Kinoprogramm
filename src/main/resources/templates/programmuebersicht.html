@@ -13,7 +13,8 @@
 
     <div th:each="tagMitProgramm : ${liste}">
 
-        <h3 th:text="${tagMitProgramm.datum}"></h3>
+        <h3 th:text="${tagMitProgramm.getDatumFormatiert()}"></h3>
+        <br>
 
         <div th:each="vorstellung : ${tagMitProgramm.getVorstellungenList()}">
 
@@ -24,16 +25,17 @@
 
             <p>
                 <span class="fett">Beginn:</span>
-                <span th:text="${vorstellung.getStartzeit()}"></span>
+                <span th:text="${vorstellung.getStartzeit()} + ' Uhr'"></span>
             </p>
 
             <p>
                 <span class="fett">Dauer:</span>
                 <span th:text="${vorstellung.getDauerMinuten() + ' min'}"></span>
             </p>            
+            <br>
 
         </div>
-        <br><br>
+        <hr>
 
     </div>    
 
