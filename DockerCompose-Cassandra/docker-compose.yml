@@ -3,9 +3,9 @@ version: '3.8'
 services:
   cassandra:
     image: cassandra:4.1
-    container_name: kinoplan-cassandra
+    container_name: kinoprogramm-cassandra
     environment:
-      - CASSANDRA_CLUSTER_NAME=KinoplanCluster
+      - CASSANDRA_CLUSTER_NAME=KinoprogrammCluster
       - CASSANDRA_DC=datacenter1
       - CASSANDRA_RACK=rack1
       - CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch
@@ -21,7 +21,7 @@ services:
 #      - cassandra_data:/var/lib/cassandra
 #      - ./cassandra-init:/docker-entrypoint-initdb.d
     networks:
-      - kinoplan-network
+      - kinoprogramm-netzwerk
     restart: unless-stopped
 #    healthcheck:
 #      test: ["CMD-SHELL", "cqlsh -e 'describe cluster'"]
@@ -35,5 +35,5 @@ services:
 #    driver: local
 
 networks:
-  kinoplan-network:
+  kinoprogramm-netzwerk:
     driver: bridge

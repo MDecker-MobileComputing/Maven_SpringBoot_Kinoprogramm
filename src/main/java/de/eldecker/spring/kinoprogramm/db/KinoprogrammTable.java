@@ -18,7 +18,7 @@ import jakarta.validation.constraints.Pattern;
 @Table
 public class KinoprogrammTable {
 
-    /** Datum im Format YYYY-MM-DD */
+    /** Datum im Format {@code YYYY-MM-DD}, z.B. {@code 2025-06-28}. */
     @PrimaryKey
     @Pattern( regexp = "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$", 
               message = "Datum muss im Format YYYY-MM-DD sein (z.B. 2025-12-31)" )  
@@ -72,7 +72,7 @@ public class KinoprogrammTable {
     @Override
     public String toString() {
         
-        return format( "Am %s gibt es %d Vorstellungen.", 
+        return format( "Am %s gibt es %d Vorstellung(en).", 
                        datum, vorstellungenList.size() );
     }
 
