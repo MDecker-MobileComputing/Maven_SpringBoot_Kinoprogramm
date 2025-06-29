@@ -12,13 +12,6 @@
         Kinoprogramm am <span th:text="${programm.getDatumFormatiert()}"></span>
     </h1>
 
-    <!--
-    <p>
-        Anzahl der Verstellungen heute:
-        <span th:text="${programm.getVorstellungenList().size()}"></span>
-    </p>
-    -->
-
     <div th:each="vorstellung : ${programm.getVorstellungenList()}">
 
         <p>
@@ -36,6 +29,7 @@
             <span th:text="${vorstellung.getDauerMinuten() + ' min'}"></span>
         </p>            
         <br>
+
     </div>
     <br><br>
 

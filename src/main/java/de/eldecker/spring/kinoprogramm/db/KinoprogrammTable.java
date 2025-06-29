@@ -1,11 +1,10 @@
 package de.eldecker.spring.kinoprogramm.db;
 
 import static de.eldecker.spring.kinoprogramm.logik.DatumZeitHelferlein.formatiereDatum;
-import static java.util.Comparator.comparing;
 import static java.lang.String.format;
+import static java.util.Comparator.comparing;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
