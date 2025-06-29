@@ -84,7 +84,7 @@ public class KinoprogrammTable {
        
     private void sortiereVorstellungenNachStartzeit() {
         
-        vorstellungenList.sort( comparing(VorstellungUDF::getStartzeit) );
+        vorstellungenList.sort( comparing( VorstellungUDF::getStartzeit ) );
     }
     
     
