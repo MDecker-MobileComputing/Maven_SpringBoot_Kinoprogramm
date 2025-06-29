@@ -37,7 +37,7 @@ lokal unter http://localhost:3000 erreichbar.
 
 <br>
 
-Beispiel für Query, die man mit diesem Web-UI direkt ausführen kann:
+Beispiel für Befehl mit der *Cassandra Query Language (CQL)*, die man mit diesem Web-UI direkt ausführen kann:
 ```
 select * from kino.kinoprogramm
 ```

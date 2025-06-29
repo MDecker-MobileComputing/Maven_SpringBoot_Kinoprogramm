@@ -6,7 +6,7 @@ docker network disconnect dockercompose-cassandra_netzwerk-intern kinoprogramm-c
 docker network disconnect dockercompose-cassandra_netzwerk-intern kinoprogramm-cassandra-2                          
 docker network rm dockercompose-cassandra_netzwerk-intern                          
 
-docker restart kinoprogramm-cassandra-1
-docker restart kinoprogramm-cassandra-2
+@REM docker restart kinoprogramm-cassandra-1
+@REM docker restart kinoprogramm-cassandra-2
 
 docker network ls
