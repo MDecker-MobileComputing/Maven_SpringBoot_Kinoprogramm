@@ -1,6 +1,6 @@
 package de.eldecker.spring.kinoprogramm.logik;
 
-import static de.eldecker.spring.kinoprogramm.logik.DatumsHelferlein.getDatumHeutePlusTage;
+import static de.eldecker.spring.kinoprogramm.logik.DatumZeitHelferlein.getDatumHeutePlusTage;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -64,7 +64,7 @@ public class DemoDatenLader implements ApplicationRunner {
         
         final KinoprogrammTable programm = new KinoprogrammTable( datum );
         
-        final VorstellungUDF vorstellung = new VorstellungUDF( "Überraschungsfilm", 120, 20, 15 );
+        final VorstellungUDF vorstellung = new VorstellungUDF( "Überraschungsfilm", 120, "20:15" );
         programm.addVorstellung( vorstellung );
         
         _kinoProgrammRepo.save( programm );
@@ -80,7 +80,7 @@ public class DemoDatenLader implements ApplicationRunner {
         
         final KinoprogrammTable programm = new KinoprogrammTable( datum );
         
-        final VorstellungUDF vorstellung = new VorstellungUDF( "Saat des Erbrechens (Teil VIII)", 90, 19, 30 );
+        final VorstellungUDF vorstellung = new VorstellungUDF( "Saat des Erbrechens (Teil VIII)", 90, "19:30" );
         programm.addVorstellung( vorstellung );
         
         _kinoProgrammRepo.save( programm );
@@ -96,8 +96,8 @@ public class DemoDatenLader implements ApplicationRunner {
         
         final KinoprogrammTable programm = new KinoprogrammTable( datum );
         
-        final VorstellungUDF vorstellung1 = new VorstellungUDF( "Käpt’n Krümel und die Keks-Piraten",  75, 15, 00 );
-        final VorstellungUDF vorstellung2 = new VorstellungUDF( "Der Spion im Hörsaal"              , 100, 20, 00 );
+        final VorstellungUDF vorstellung1 = new VorstellungUDF( "Käpt’n Krümel und die Keks-Piraten",  75, "15:00" );
+        final VorstellungUDF vorstellung2 = new VorstellungUDF( "Der Spion im Hörsaal"              , 100, "20:00" );
         
         programm.addVorstellung( vorstellung1 );
         programm.addVorstellung( vorstellung2 );

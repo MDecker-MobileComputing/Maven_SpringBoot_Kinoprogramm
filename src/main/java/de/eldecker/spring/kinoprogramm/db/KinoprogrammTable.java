@@ -1,6 +1,6 @@
 package de.eldecker.spring.kinoprogramm.db;
 
-import static de.eldecker.spring.kinoprogramm.logik.DatumsHelferlein.formatiereDatum;
+import static de.eldecker.spring.kinoprogramm.logik.DatumZeitHelferlein.formatiereDatum;
 import static java.lang.String.format;
 
 import java.util.ArrayList;

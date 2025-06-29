@@ -6,6 +6,7 @@ import static java.time.LocalDate.now;
 import static java.util.Locale.GERMAN;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
@@ -13,9 +14,11 @@ import java.time.format.DateTimeParseException;
 /**
  * Klasse mit Hilfsfunktionen für Datumswerte.
  */
-public class DatumsHelferlein {
+public class DatumZeitHelferlein {
 
     private static final DateTimeFormatter DATUMS_FORMATIERER = ofPattern( "yyyy-MM-dd" );
+
+    private static final DateTimeFormatter UHRZEIT_FORMATIERER = ofPattern( "HH:mm" );
     
     
     /**
@@ -86,4 +89,10 @@ public class DatumsHelferlein {
         }
     }
 
+    
+    public static LocalTime parseUhrzeit( String uhrzeitString ) throws DateTimeParseException {
+
+        return LocalTime.parse( uhrzeitString, UHRZEIT_FORMATIERER );
+    }
+    
 }

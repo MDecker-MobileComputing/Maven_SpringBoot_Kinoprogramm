@@ -1,12 +1,16 @@
 package de.eldecker.spring.kinoprogramm.db;
 
+import static de.eldecker.spring.kinoprogramm.logik.DatumZeitHelferlein.parseUhrzeit;
 import static java.lang.String.format;
+
+import java.time.LocalTime;
 
 import org.springframework.data.cassandra.core.mapping.UserDefinedType;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 
 /**
@@ -21,13 +25,8 @@ public class VorstellungUDF {
     @NotBlank( message = "Titel der Vorstellung darf nicht leer sein" )
     private String titel;
         
-    @Min( value =  0, message = "Stunde von Uhrzeit darf nicht negativ sein"       )
-    @Max( value = 23, message = "Stunde von Uhrzeit darf nicht größer als 23 sein" )
-    private int startStunde;
-
-    @Min( value =  0, message = "Minuten von Uhrzeit darf nicht negativ sein"  )
-    @Max( value = 59, message = "Minute von Uhrzeit darf nicht größer 59 sein" )
-    private int startMinute;
+    @NotNull( message = "Startzeit darf nicht null sein" )
+    private LocalTime startzeit;
 
     /** Dauer der Vorstellung in Minuten, z.B. 90 Minuten. */
     @Min( value =  20, message = "Vorstellung muss mindestens 20 Minuten dauern" )
@@ -42,14 +41,20 @@ public class VorstellungUDF {
     /**
      * Konstruktor um alle Attribute der Vorstellung zu setzen.
      */
-    public VorstellungUDF( String titel, int dauerMinuten, int startStunde, int startMinute ) {
+    public VorstellungUDF( String titel, int dauerMinuten, LocalTime startzeit ) {
         
         this.titel        = titel;
         this.dauerMinuten = dauerMinuten;
-        this.startStunde  = startStunde;
-        this.startMinute  = startMinute;
+        this.startzeit    = startzeit;
     }
 
+    public VorstellungUDF( String titel, int dauerMinuten, String startzeitStr ) {
+        
+        this.titel        = titel;
+        this.dauerMinuten = dauerMinuten;
+        this.startzeit    = parseUhrzeit( startzeitStr );
+    }
+    
     
     public String getTitel() {
         
@@ -71,38 +76,18 @@ public class VorstellungUDF {
         this.dauerMinuten = dauerMinuten;
     }
 
-    public int getStartStunde() {
-        
-        return startStunde;
-    }
-
-    public void setStartStunde( int startStunde ) {
-        
-        this.startStunde = startStunde;
-    }
-
-    public int getStartMinute() {
-        
-        return startMinute;
-    }
-
-    public void setStartMinute( int startMinute ) {
-        
-        this.startMinute = startMinute;
-    }
-
     
-    /**
-     * Convenience-Methode für Abfrage von Startzeit der Vorstellung.
-     * 
-     * @return Startzeit von Vorstellung als String im Format {@code hh:mm Uhr},
-     *         z.B. {@code 09:00 Uhr } oder {@code 12:15 Uhr}.
-     */
-    public String getStartzeit() {
+    public LocalTime getStartzeit() {
         
-        return format( "%02d:%02d", startStunde, startMinute );
+        return startzeit;
     }
-    
+
+    public void setStartzeit( LocalTime startzeit ) {
+        
+        this.startzeit = startzeit;
+    }
+
+
     /**
      * String-Repräsentation.
      * 
