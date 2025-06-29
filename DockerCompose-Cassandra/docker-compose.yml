@@ -23,17 +23,33 @@ services:
     networks:
       - kinoprogramm-netzwerk
     restart: unless-stopped
-#    healthcheck:
-#      test: ["CMD-SHELL", "cqlsh -e 'describe cluster'"]
-#      interval: 30s
-#      timeout: 10s
-#      retries: 5
-#      start_period: 30s
+    healthcheck:
+      test: ["CMD-SHELL", "cqlsh -e 'describe cluster'"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
 
-#volumes:
-#  cassandra_data:
-#    driver: local
+  cassandra-web:
+    image: ipushc/cassandra-web:latest
+    container_name: kinoprogramm-cassandra-web
+    environment:
+      - CASSANDRA_HOST_IPS=cassandra
+      - CASSANDRA_PORT=9042
+      - CASSANDRA_USERNAME=
+      - CASSANDRA_PASSWORD=
+    depends_on:
+      cassandra:
+        condition: service_healthy
+    ports:
+      - "3000:8083" # Cassandra Web UI
+    networks:
+      - kinoprogramm-netzwerk
 
 networks:
   kinoprogramm-netzwerk:
     driver: bridge
+
+#volumes:
+#  cassandra_data:
+#    driver: local

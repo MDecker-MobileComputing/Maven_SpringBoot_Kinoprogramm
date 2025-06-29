@@ -1,7 +1,6 @@
 package de.eldecker.spring.kinoprogramm.web;
 
 import static de.eldecker.spring.kinoprogramm.logik.DatumsHelferlein.formatiereDatumMitWochentag;
-import static de.eldecker.spring.kinoprogramm.logik.DatumsHelferlein.getDatumHeute;
 
 import java.util.List;
 import java.util.Optional;
