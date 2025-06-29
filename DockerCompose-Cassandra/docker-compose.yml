@@ -59,7 +59,7 @@ services:
     image: ipushc/cassandra-web:latest
     container_name: kinoprogramm-cassandra-web
     environment:
-      - CASSANDRA_HOST_IPS=cassandra
+      - CASSANDRA_HOST_IPS=cassandra-1
       - CASSANDRA_PORT=9042
       - CASSANDRA_USERNAME=
       - CASSANDRA_PASSWORD=
