@@ -5,8 +5,24 @@
 Dieses Verzeichnis enthält eine Datei [docker-compose.yml](docker-compose.yml),
 die folgende Container definiert:
 
-* Cassandra (Datenbank)
-* Cassandra Web (Admin-UI)
+* 2x Cassandra:
+  * `cassandra-1` an Port 9042
+  * `cassandra-2` an Port 9043
+* Cassandra Web (Admin-UI) an Port 3000 (mit `cassandra-1` verbunden)
+
+<br>
+
+Die beiden Cassandra-Instanzen sind als Cluster verbunden, tauschen also untereinander
+die Daten aus.
+
+<br>
+
+Log-Dateien von den drei Containern auslesen:
+```
+docker logs -f kinoprogramm-cassandra-1
+docker logs -f kinoprogramm-cassandra-2
+docker logs -f cassandra-web
+```
 
 <br>
 
