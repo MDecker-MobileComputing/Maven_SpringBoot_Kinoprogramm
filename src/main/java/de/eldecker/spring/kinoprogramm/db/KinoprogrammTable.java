@@ -1,6 +1,6 @@
 package de.eldecker.spring.kinoprogramm.db;
 
-import static de.eldecker.spring.kinoprogramm.logik.DatumsHelferlein.formatiereDatumMitWochentag;
+import static de.eldecker.spring.kinoprogramm.logik.DatumsHelferlein.formatiereDatum;
 import static java.lang.String.format;
 
 import java.util.ArrayList;
@@ -60,7 +60,7 @@ public class KinoprogrammTable {
      */
     public String getDatumFormatiert() {
         
-        return formatiereDatumMitWochentag( datum ); 
+        return formatiereDatum( datum ); 
     }
 
     public List<VorstellungUDF> getVorstellungenList() {

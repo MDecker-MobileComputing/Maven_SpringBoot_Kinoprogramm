@@ -86,6 +86,7 @@ public class VorstellungFormular {
         this.laufzeitMinuten = laufzeitMinuten;
     }
 
+    
     /**
      * String-Repräsentation der Vorstellung.
      * 
@@ -94,8 +95,9 @@ public class VorstellungFormular {
     @Override
     public String toString() {
         
-        return format( "VorstellungFormular[Titel=\"%s\", Datum=%s, Uhrzeit=%s, Laufzeit=%d Minuten]", 
-                       titel, datum, uhrzeit, laufzeitMinuten );
+        return format( 
+                "VorstellungFormular[Titel=\"%s\", Datum=%s, Uhrzeit=%s, Laufzeit=%d Minuten]", 
+                titel, datum, uhrzeit, laufzeitMinuten );
     }
     
 }

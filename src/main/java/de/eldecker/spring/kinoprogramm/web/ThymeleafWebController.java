@@ -1,6 +1,6 @@
 package de.eldecker.spring.kinoprogramm.web;
 
-import static de.eldecker.spring.kinoprogramm.logik.DatumsHelferlein.formatiereDatumMitWochentag;
+import static de.eldecker.spring.kinoprogramm.logik.DatumsHelferlein.formatiereDatum;
 
 import java.util.List;
 import java.util.Optional;
@@ -73,7 +73,7 @@ public class ThymeleafWebController {
         if ( kinoProgrammOptional.isEmpty() ) {
          
             final String fehlertext = 
-                    "Kein Programm für " + formatiereDatumMitWochentag( datum ) + " gefunden.";
+                    "Kein Programm für " + formatiereDatum( datum ) + " gefunden.";
             LOG.error( fehlertext );
             model.addAttribute( "fehlermeldung", fehlertext );
             

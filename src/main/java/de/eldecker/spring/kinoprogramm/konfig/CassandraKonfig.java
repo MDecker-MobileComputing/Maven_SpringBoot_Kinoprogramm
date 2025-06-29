@@ -15,7 +15,7 @@ import org.springframework.data.cassandra.repository.config.EnableCassandraRepos
 
 
 /**
- * Konfiguration für Cassandra-Verbindung.
+ * Konfiguration für Verbindung zur Cassandra-Datenbank
  */
 @Configuration
 @EnableCassandraRepositories(basePackages = "de.eldecker.spring.kinoprogramm.db" )

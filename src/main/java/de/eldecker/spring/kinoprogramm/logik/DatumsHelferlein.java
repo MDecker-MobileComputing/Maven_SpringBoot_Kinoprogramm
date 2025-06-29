@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+
 /**
  * Klasse mit Hilfsfunktionen für Datumswerte.
  */
@@ -54,7 +55,7 @@ public class DatumsHelferlein {
      * 
      * @throws DateTimeParseException wenn das Input-Format ungültig ist
      */
-    public static String formatiereDatumMitWochentag( String datumString ) throws DateTimeParseException {
+    public static String formatiereDatum( String datumString ) throws DateTimeParseException {
         
         final LocalDate datum = LocalDate.parse( datumString, DATUMS_FORMATIERER ); // DateTimeParseException
         
