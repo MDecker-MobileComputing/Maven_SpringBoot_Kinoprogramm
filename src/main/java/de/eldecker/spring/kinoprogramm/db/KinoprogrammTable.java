@@ -1,9 +1,11 @@
 package de.eldecker.spring.kinoprogramm.db;
 
 import static de.eldecker.spring.kinoprogramm.logik.DatumZeitHelferlein.formatiereDatum;
+import static java.util.Comparator.comparing;
 import static java.lang.String.format;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
@@ -62,6 +64,7 @@ public class KinoprogrammTable {
         
         return formatiereDatum( datum ); 
     }
+    
 
     public List<VorstellungUDF> getVorstellungenList() {
         
@@ -71,13 +74,20 @@ public class KinoprogrammTable {
     public void setVorstellungenList( List<VorstellungUDF> vorstellungenList ) {
         
         this.vorstellungenList = vorstellungenList;
+        sortiereVorstellungenNachStartzeit();
     }
     
     public void addVorstellung( VorstellungUDF vorstellung ) {
         
         this.vorstellungenList.add( vorstellung );
+        sortiereVorstellungenNachStartzeit();
     }
        
+    private void sortiereVorstellungenNachStartzeit() {
+        
+        vorstellungenList.sort( comparing(VorstellungUDF::getStartzeit) );
+    }
+    
     
     /**
      * String-Repräsentation.

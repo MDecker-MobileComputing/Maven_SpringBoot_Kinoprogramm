@@ -109,7 +109,7 @@ public class KinoProgrammService {
         
         _repo.save( kinoProgramm );
         
-        LOG.info( "Vorstellung gespeichert: {}", vorstellung );
+        LOG.info( "Vorstellung am {} gespeichert: {}", datumStr, vorstellung );
     }
     
 }
