@@ -125,7 +125,7 @@ public class ThymeleafWebController {
             return "neu";
         }
         
-        LOG.info( "Neue Vorstellung: {}", vorstellung);
+        _kinoService.saveVorstellung( vorstellung );
         
         return "redirect:/app/v1/uebersicht";
     }

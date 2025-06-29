@@ -16,7 +16,8 @@ die folgende Container definiert:
 
 Web-UI für Cassandra, siehe auch: https://github.com/avalanche123/cassandra-web
 
-Verbindet sich beim Start automatisch mit der Cassandra-Instanz.
+Verbindet sich beim Start automatisch mit der Cassandra-Instanz, ist danach
+lokal unter http://localhost:3000 erreichbar.
 
 <br>
 

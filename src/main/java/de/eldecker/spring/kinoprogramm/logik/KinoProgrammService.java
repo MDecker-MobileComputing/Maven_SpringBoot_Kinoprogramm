@@ -14,10 +14,12 @@ import org.springframework.stereotype.Service;
 
 import de.eldecker.spring.kinoprogramm.db.KinoprogrammRepository;
 import de.eldecker.spring.kinoprogramm.db.KinoprogrammTable;
+import de.eldecker.spring.kinoprogramm.db.VorstellungUDF;
+import de.eldecker.spring.kinoprogramm.web.VorstellungFormular;
 
 
 /**
- * Bean mit Geschäftslogik.
+ * Bean mit Geschäftslogik für Kinoprogramm.
  */
 @Service
 public class KinoProgrammService {
@@ -72,5 +74,42 @@ public class KinoProgrammService {
 
         return  _repo.findById( datum );
     }
+    
 
+    /**
+     * Neue Vorstellung speichern und bei Bedarf Programm für Datum anlegen.
+     * 
+     * @param formular Validiertes Formular mit Daten der Vorstellung
+     */
+    public void saveVorstellung( VorstellungFormular formular ) {
+        
+        LOG.info( "Soll Vorstellung speichern: {}", formular );
+        
+        final String datumStr = formular.getDatum() + "";
+        final Optional<KinoprogrammTable> kinoprogrammOptional = _repo.findById( datumStr );
+
+        KinoprogrammTable kinoProgramm = null;
+        if ( kinoprogrammOptional.isEmpty() ) {
+            
+            LOG.info( "Kein Programm für Datum {} gefunden, neues anlegen.", datumStr );
+            kinoProgramm = new KinoprogrammTable( datumStr );
+            
+        } else {
+            
+            LOG.info( "Bestehendes Programm für Datum {} gefunden.", datumStr );
+            kinoProgramm = kinoprogrammOptional.get();
+        }
+        
+        final VorstellungUDF vorstellung = new VorstellungUDF(
+                                                        formular.getTitel(), 
+                                                        formular.getLaufzeitMinuten(),
+                                                        formular.getUhrzeit()
+                                                    );
+        kinoProgramm.addVorstellung( vorstellung );
+        
+        _repo.save( kinoProgramm );
+        
+        LOG.info( "Vorstellung gespeichert: {}", vorstellung );
+    }
+    
 }
