@@ -27,13 +27,11 @@
         </div>
         <br>
         
-        <!--
         <div>
             <label for="uhrzeit">Uhrzeit:</label>
-            <input type="time" id="uhrzeit" th:field="*{uhrzeit}" />
+            <input type="time" id="uhrzeit" th:field="*{uhrzeit}" step="300" />
             <span th:if="${#fields.hasErrors('uhrzeit')}" th:errors="*{uhrzeit}" class="fehler"></span>
         </div>
-        -->
 
         <div th:if="${#fields.hasErrors()}" class="error">
             <p><strong>Bitte oben angezeigte Fehler korrigieren.</strong></p>
