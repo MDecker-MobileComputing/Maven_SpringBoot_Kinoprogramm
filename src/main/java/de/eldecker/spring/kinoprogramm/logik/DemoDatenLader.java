@@ -14,10 +14,14 @@ import de.eldecker.spring.kinoprogramm.db.KinoprogrammTable;
 import de.eldecker.spring.kinoprogramm.db.VorstellungUDF;
 
 
+/**
+ * Diese Bean lädt beim Start der Anwendung einige Vorstellungen in die Cassandra-Datenbank.
+ */
 @Component
 public class DemoDatenLader implements ApplicationRunner {
 
     private static final Logger LOG = LoggerFactory.getLogger( DemoDatenLader.class );
+    
     
     /** Repo für Zugriff Tabelle in Cassandra-DB. */
     @Autowired

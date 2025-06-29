@@ -21,11 +21,11 @@ public class VorstellungUDF {
     @NotBlank( message = "Titel der Vorstellung darf nicht leer sein" )
     private String titel;
         
-    @Min( value = 0 , message = "Stunde von Uhrzeit darf nicht negativ sein"       )
+    @Min( value =  0, message = "Stunde von Uhrzeit darf nicht negativ sein"       )
     @Max( value = 23, message = "Stunde von Uhrzeit darf nicht größer als 23 sein" )
     private int startStunde;
 
-    @Min( value = 0 , message = "Minuten von Uhrzeit darf nicht negativ sein"  )
+    @Min( value =  0, message = "Minuten von Uhrzeit darf nicht negativ sein"  )
     @Max( value = 59, message = "Minute von Uhrzeit darf nicht größer 59 sein" )
     private int startMinute;
 
@@ -50,6 +50,7 @@ public class VorstellungUDF {
         this.startMinute  = startMinute;
     }
 
+    
     public String getTitel() {
         
         return titel;
