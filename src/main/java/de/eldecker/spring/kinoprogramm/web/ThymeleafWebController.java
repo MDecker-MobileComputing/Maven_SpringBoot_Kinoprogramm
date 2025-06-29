@@ -124,7 +124,7 @@ public class ThymeleafWebController {
             return "neu";
         }
         
-        LOG.info( "Neue Vorstellung: {}", vorstellung.getTitel() );
+        LOG.info( "Neue Vorstellung: {}", vorstellung);
         
         return "redirect:/app/v1/uebersicht";
     }

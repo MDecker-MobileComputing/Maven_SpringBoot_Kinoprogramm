@@ -18,14 +18,16 @@
             <input type="text" id="titelVorstellung" th:field="*{titel}" />
             <span th:if="${#fields.hasErrors('titel')}" th:errors="*{titel}" class="fehler"></span>
         </div>
-        
-        <!--
+        <br>
+
         <div>
             <label for="datum">Datum:</label>
             <input type="date" id="datum" th:field="*{datum}" />
             <span th:if="${#fields.hasErrors('datum')}" th:errors="*{datum}" class="fehler"></span>
         </div>
+        <br>
         
+        <!--
         <div>
             <label for="uhrzeit">Uhrzeit:</label>
             <input type="time" id="uhrzeit" th:field="*{uhrzeit}" />
