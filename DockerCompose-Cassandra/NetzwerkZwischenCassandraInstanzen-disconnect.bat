@@ -1,12 +1,12 @@
 
-@REM Zeige Netzwerkkonfiguration aller Container vor Änderung
-docker ps --format "table {{.Names}}\t{{.Networks}}"
-                          
-docker network disconnect dockercompose-cassandra_netzwerk-intern kinoprogramm-cassandra-1                        
-docker restart kinoprogramm-cassandra-1
+docker network ls
 
-docker network disconnect dockercompose-cassandra_netzwerk-intern kinoprogramm-cassandra-2
-docker restart kinoprogramm-cassandra-2
+@REM Erst Container aus Netzwerk entfernen, dann Netzwerk loeschen
+docker network disconnect dockercompose-cassandra_netzwerk-intern kinoprogramm-cassandra-1
+docker network disconnect dockercompose-cassandra_netzwerk-intern kinoprogramm-cassandra-2                          
+docker network rm dockercompose-cassandra_netzwerk-intern                          
 
-@REM Zeige Netzwerkkonfiguration aller Container nach Änderung
-docker ps --format "table {{.Names}}\t{{.Networks}}"
+@REM docker restart kinoprogramm-cassandra-1
+@REM docker restart kinoprogramm-cassandra-2
+
+docker network ls
