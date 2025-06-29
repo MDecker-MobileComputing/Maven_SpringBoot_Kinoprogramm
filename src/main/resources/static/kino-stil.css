@@ -27,3 +27,10 @@ ul li {
 .klein {
     font-size: 0.75em;
 }
+
+.fehler {
+    color: #e53e3e;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-left: 10px;
+}
