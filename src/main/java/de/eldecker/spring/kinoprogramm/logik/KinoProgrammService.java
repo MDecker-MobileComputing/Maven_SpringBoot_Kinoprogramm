@@ -1,10 +1,14 @@
 package de.eldecker.spring.kinoprogramm.logik;
 
+import static de.eldecker.spring.kinoprogramm.logik.DatumsHelferlein.istDatumOkay;
 import static de.eldecker.spring.kinoprogramm.logik.DatumsHelferlein.getDatumHeute;
 import static java.util.Comparator.comparing;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +21,8 @@ import de.eldecker.spring.kinoprogramm.db.KinoprogrammTable;
  */
 @Service
 public class KinoProgrammService {
+    
+    private static final Logger LOG = LoggerFactory.getLogger( KinoProgrammService.class );
 
     /** Bean für Zugriff auf Cassandra-Datenbank. */
     @Autowired
@@ -43,6 +49,27 @@ public class KinoProgrammService {
         kinoProgrammListe.sort( comparing( KinoprogrammTable::getDatum) );
         
         return kinoProgrammListe;
+    }
+
+    
+    /**
+     * Gibt das Kinoprogramm für einen bestimmten Tag zurück.
+     * 
+     * @param datum Datum im Format "YYYY-MM-DD"; muss gültig sein
+     * 
+     * @return Optional mit Kinoprogramm für den angegebenen Tag;
+     *         leeres Optional, wenn das Datum ungültig ist oder
+     *         kein Programm für diesen Tag existiert
+     */
+    public Optional<KinoprogrammTable> getProgrammFuerDatum( String datum ) {
+
+        if ( !istDatumOkay( datum ) ) {
+            
+            LOG.info( "Ungültiges Datum \"{}\" für Abfrage Programm.", datum );
+            return Optional.empty();
+        }
+
+        return  _repo.findById( datum );
     }
 
 }

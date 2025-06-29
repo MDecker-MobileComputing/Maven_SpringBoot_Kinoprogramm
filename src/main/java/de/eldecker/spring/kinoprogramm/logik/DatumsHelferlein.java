@@ -20,7 +20,8 @@ public class DatumsHelferlein {
     /**
      * Datums-Strings für Heute + {@code anzTage} definieren.
      * 
-     * @param anzTage Anzahl Tage, die auf heutiges Datum addiert wird
+     * @param anzTage Anzahl Tage, die auf heutiges Datum addiert wird;
+     *                kann auch 0 sein für heutiges Datum
      * 
      * @return Datum im Format {@code YYYY-MM-DD}
      */
@@ -33,10 +34,14 @@ public class DatumsHelferlein {
     }
     
     
+    /** 
+     * Datums-String für heutigen Tag.
+     * 
+     * @return Heutiges Datum im Format {@code YYYY-MM-DD}
+     */
     public static String getDatumHeute() {
         
-        final LocalDate heute = now();
-        return DATUMS_FORMATIERER.format( heute );
+        return getDatumHeutePlusTage( 0 );
     }
     
     
@@ -51,11 +56,33 @@ public class DatumsHelferlein {
      */
     public static String formatiereDatumMitWochentag( String datumString ) throws DateTimeParseException {
         
-        final LocalDate datum = LocalDate.parse( datumString, DATUMS_FORMATIERER );
+        final LocalDate datum = LocalDate.parse( datumString, DATUMS_FORMATIERER ); // DateTimeParseException
         
         final DateTimeFormatter ausgabeFormatierer = ofPattern( "dd.MM.yyyy (EEEE)", GERMAN );
         
         return ausgabeFormatierer.format( datum );
+    }
+    
+    
+    /**
+     * Prüft, ob ein Datum das Format {@code YYYY-MM-DD} hat und
+     * gültig ist.
+     * 
+     * @param datumString Zu überprüfendes Datum
+     * 
+     * @return {@code true} gdw. das Datum gültig ist
+     */
+    public static boolean istDatumOkay( String datumString ) {
+        
+        try {
+            
+            LocalDate.parse( datumString, DATUMS_FORMATIERER );
+            return true;
+            
+        } catch ( DateTimeParseException ex ) {
+            
+            return false;
+        }
     }
 
 }

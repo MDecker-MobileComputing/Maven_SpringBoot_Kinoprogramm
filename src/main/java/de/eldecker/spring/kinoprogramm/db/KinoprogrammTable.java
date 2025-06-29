@@ -77,8 +77,13 @@ public class KinoprogrammTable {
         
         this.vorstellungenList.add( vorstellung );
     }
-            
+       
     
+    /**
+     * String-Repräsentation.
+     * 
+     * @return String mit Datum und Anzahl Vorstellungen
+     */
     @Override
     public String toString() {
         

@@ -16,6 +16,9 @@ public interface KinoprogrammRepository
     
     /**
      * Findet alle Einträge mit Datum größer oder gleich angegebener Wert.
+     * <br><br>
+     * 
+     * Die annotierte Query ist in "CQL" (Cassandra Query Language) geschrieben.
      * 
      * @param datum Startdatum (inklusiv) im Format "YYYY-MM-DD"
      * 

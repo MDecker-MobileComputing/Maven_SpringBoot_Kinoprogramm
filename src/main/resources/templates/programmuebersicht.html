@@ -8,34 +8,18 @@
 </head>
 <body>
 
-    <h1>Kinoprogramm: Übersicht ab heute</h1>
+    <h1>Kinoprogramm: Übersicht</h1>
 
+    <p>Nur zukünftige Termine</p>
+    <br>
 
     <div th:each="tagMitProgramm : ${liste}">
 
-        <h3 th:text="${tagMitProgramm.getDatumFormatiert()}"></h3>
-        <br>
-
-        <div th:each="vorstellung : ${tagMitProgramm.getVorstellungenList()}">
-
-            <p>
-                <span class="fett">Vorstellung:</span>
-                <span th:text="${vorstellung.getTitel()}"></span>
-            </p>
-
-            <p>
-                <span class="fett">Beginn:</span>
-                <span th:text="${vorstellung.getStartzeit()} + ' Uhr'"></span>
-            </p>
-
-            <p>
-                <span class="fett">Dauer:</span>
-                <span th:text="${vorstellung.getDauerMinuten() + ' min'}"></span>
-            </p>            
-            <br>
-
-        </div>
-        <hr>
+        <h3>
+            <a th:href="'/app/v1/details/' + ${tagMitProgramm.getDatum()}" 
+               th:text="${tagMitProgramm.getDatumFormatiert()}">
+            </a>
+        </h3>
 
     </div>    
 
