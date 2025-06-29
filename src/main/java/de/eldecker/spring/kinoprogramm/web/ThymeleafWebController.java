@@ -119,7 +119,8 @@ public class ThymeleafWebController {
                                                     Model model) {
         if ( bindingResult.hasErrors() ) {
             
-            LOG.error( "Fehler in Formulardaten fuer neue Vorstellung gefunden." ); 
+            LOG.error( "Fehler in Formulardaten fuer neue Vorstellung gefunden: {}",
+                       vorstellung ); 
 
             return "neu";
         }

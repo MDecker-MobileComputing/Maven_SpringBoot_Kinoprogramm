@@ -8,6 +8,8 @@ import java.time.LocalTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.validation.constraints.FutureOrPresent;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -35,6 +37,10 @@ public class VorstellungFormular {
     @NotNull( message = "Uhrzeit ist erforderlich" )
     @DateTimeFormat( pattern = "HH:mm" )
     private LocalTime uhrzeit;
+    
+    @Min( value =   5, message = "Laufzeit muss mindestens 5 Minuten sein" )
+    @Max( value = 999, message = "Laufzeit darf höchstens 999 Minuten sein" )
+    private int laufzeitMinuten;
     
     
     public String getTitel() {
@@ -70,6 +76,16 @@ public class VorstellungFormular {
     }
     
     
+    public int getLaufzeitMinuten() {
+        
+        return laufzeitMinuten;
+    }
+
+    public void setLaufzeitMinuten( int laufzeitMinuten ) {
+        
+        this.laufzeitMinuten = laufzeitMinuten;
+    }
+
     /**
      * String-Repräsentation der Vorstellung.
      * 
@@ -78,8 +94,8 @@ public class VorstellungFormular {
     @Override
     public String toString() {
         
-        return format( "VorstellungFormular[titel=\"%s\", datum=%s, uhrzeit=%s]]", 
-                       titel, datum, uhrzeit );
+        return format( "VorstellungFormular[Titel=\"%s\", Datum=%s, Uhrzeit=%s, Laufzeit=%d Minuten]", 
+                       titel, datum, uhrzeit, laufzeitMinuten );
     }
     
 }
