@@ -22,7 +22,7 @@ public class KinoprogrammTable {
 
     /** Datum im Format {@code YYYY-MM-DD}, z.B. {@code 2025-06-28}. */
     @PrimaryKey
-    @Pattern( regexp = "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$", 
+    @Pattern( regexp  = "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$", 
               message = "Datum muss im Format YYYY-MM-DD sein (z.B. 2025-12-31)" )  
     private String datum;
     
@@ -91,7 +91,7 @@ public class KinoprogrammTable {
     /**
      * String-Repräsentation.
      * 
-     * @return String mit Datum und Anzahl Vorstellungen
+     * @return String mit Datum und Anzahl der Vorstellungen
      */
     @Override
     public String toString() {
