@@ -19,7 +19,7 @@ import jakarta.validation.constraints.NotNull;
  * Saal aus.
  */
 @UserDefinedType( "Vorstellung" )
-public class VorstellungUDF {
+public class VorstellungUDT {
 
     /** Titel der Vorstellung, z.B. Name Film, "Sneak Preview" oder "Star-Trek-Nacht". */
     @NotBlank( message = "Titel der Vorstellung darf nicht leer sein" )
@@ -35,20 +35,20 @@ public class VorstellungUDF {
     
     
     /** Leerer Default-Konstruktor */
-    public VorstellungUDF() {}
+    public VorstellungUDT() {}
     
     
     /**
      * Konstruktor um alle Attribute der Vorstellung zu setzen.
      */
-    public VorstellungUDF( String titel, int dauerMinuten, LocalTime startzeit ) {
+    public VorstellungUDT( String titel, int dauerMinuten, LocalTime startzeit ) {
         
         this.titel        = titel;
         this.dauerMinuten = dauerMinuten;
         this.startzeit    = startzeit;
     }
 
-    public VorstellungUDF( String titel, int dauerMinuten, String startzeitStr ) {
+    public VorstellungUDT( String titel, int dauerMinuten, String startzeitStr ) {
         
         this.titel        = titel;
         this.dauerMinuten = dauerMinuten;

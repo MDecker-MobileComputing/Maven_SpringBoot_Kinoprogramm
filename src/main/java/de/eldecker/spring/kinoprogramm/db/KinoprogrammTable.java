@@ -17,26 +17,20 @@ import jakarta.validation.constraints.Pattern;
  * Ein Objekt dieser Klasse enthält die Vorstellung/Filmen
  * an einem bestimmten Tag. 
  */
+
+
 @Table( "kinoprogramm" )
 public class KinoprogrammTable {
 
-    /** Datum im Format {@code YYYY-MM-DD}, z.B. {@code 2025-06-28}. */
     @PrimaryKey
-    @Pattern( regexp  = "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$", 
-              message = "Datum muss im Format YYYY-MM-DD sein (z.B. 2025-12-31)" )  
     private String datum;
     
-    /** Liste der Vorstellungen an diesem Tag, kann auch leer sein. */
-    private List<VorstellungUDF> vorstellungenList = new ArrayList<>();
+    private List<VorstellungUDT> vorstellungenList = new ArrayList<>();
     
     
-    /** Default-Konstruktor */
     public KinoprogrammTable() {}
     
 
-    /**
-     * Konstruktor um Datum zu setzen.
-     */
     public KinoprogrammTable( String datum ) {
         
         this.datum = datum;
@@ -65,18 +59,18 @@ public class KinoprogrammTable {
     }
     
 
-    public List<VorstellungUDF> getVorstellungenList() {
+    public List<VorstellungUDT> getVorstellungenList() {
         
         return vorstellungenList;
     }
 
-    public void setVorstellungenList( List<VorstellungUDF> vorstellungenList ) {
+    public void setVorstellungenList( List<VorstellungUDT> vorstellungenList ) {
         
         this.vorstellungenList = vorstellungenList;
         sortiereVorstellungenNachStartzeit();
     }
     
-    public void addVorstellung( VorstellungUDF vorstellung ) {
+    public void addVorstellung( VorstellungUDT vorstellung ) {
         
         this.vorstellungenList.add( vorstellung );
         sortiereVorstellungenNachStartzeit();
@@ -84,7 +78,7 @@ public class KinoprogrammTable {
        
     private void sortiereVorstellungenNachStartzeit() {
         
-        vorstellungenList.sort( comparing( VorstellungUDF::getStartzeit ) );
+        vorstellungenList.sort( comparing( VorstellungUDT::getStartzeit ) );
     }
     
     

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 import de.eldecker.spring.kinoprogramm.db.KinoprogrammRepository;
 import de.eldecker.spring.kinoprogramm.db.KinoprogrammTable;
-import de.eldecker.spring.kinoprogramm.db.VorstellungUDF;
+import de.eldecker.spring.kinoprogramm.db.VorstellungUDT;
 import de.eldecker.spring.kinoprogramm.web.VorstellungFormular;
 
 
@@ -100,7 +100,7 @@ public class KinoProgrammService {
             kinoProgramm = kinoprogrammOptional.get();
         }
         
-        final VorstellungUDF vorstellung = new VorstellungUDF(
+        final VorstellungUDT vorstellung = new VorstellungUDT(
                                                         formular.getTitel(), 
                                                         formular.getLaufzeitMinuten(),
                                                         formular.getUhrzeit()

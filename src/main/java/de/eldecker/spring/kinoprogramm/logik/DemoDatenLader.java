@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 import de.eldecker.spring.kinoprogramm.db.KinoprogrammRepository;
 import de.eldecker.spring.kinoprogramm.db.KinoprogrammTable;
-import de.eldecker.spring.kinoprogramm.db.VorstellungUDF;
+import de.eldecker.spring.kinoprogramm.db.VorstellungUDT;
 
 
 /**
@@ -64,7 +64,7 @@ public class DemoDatenLader implements ApplicationRunner {
         
         final KinoprogrammTable programm = new KinoprogrammTable( datum );
         
-        final VorstellungUDF vorstellung = new VorstellungUDF( "Überraschungsfilm", 120, "20:15" );
+        final VorstellungUDT vorstellung = new VorstellungUDT( "Überraschungsfilm", 120, "20:15" );
         programm.addVorstellung( vorstellung );
         
         _kinoProgrammRepo.save( programm );
@@ -80,7 +80,7 @@ public class DemoDatenLader implements ApplicationRunner {
         
         final KinoprogrammTable programm = new KinoprogrammTable( datum );
         
-        final VorstellungUDF vorstellung = new VorstellungUDF( "Saat des Erbrechens (Teil VIII)", 90, "19:30" );
+        final VorstellungUDT vorstellung = new VorstellungUDT( "Saat des Erbrechens (Teil VIII)", 90, "19:30" );
         programm.addVorstellung( vorstellung );
         
         _kinoProgrammRepo.save( programm );
@@ -96,8 +96,8 @@ public class DemoDatenLader implements ApplicationRunner {
         
         final KinoprogrammTable programm = new KinoprogrammTable( datum );
         
-        final VorstellungUDF vorstellung1 = new VorstellungUDF( "Käpt’n Krümel und die Keks-Piraten",  75, "15:00" );
-        final VorstellungUDF vorstellung2 = new VorstellungUDF( "Der Spion im Hörsaal"              , 100, "20:00" );
+        final VorstellungUDT vorstellung1 = new VorstellungUDT( "Käpt’n Krümel und die Keks-Piraten",  75, "15:00" );
+        final VorstellungUDT vorstellung2 = new VorstellungUDT( "Der Spion im Hörsaal"              , 100, "20:00" );
         
         programm.addVorstellung( vorstellung1 );
         programm.addVorstellung( vorstellung2 );
