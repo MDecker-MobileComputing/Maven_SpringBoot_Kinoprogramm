@@ -26,7 +26,7 @@
             <span th:if="${#fields.hasErrors('datum')}" th:errors="*{datum}" class="fehler"></span>
         </div>
         <br>
-        
+
         <div>
             <label for="uhrzeit">Uhrzeit:</label>
             <input type="time" id="uhrzeit" th:field="*{uhrzeit}" step="300" />
@@ -36,7 +36,7 @@
 
         <div>
             <label for="laufzeitMinuten">Laufzeit (in Minuten):</label>
-            <input type="number" id="laufzeitMinuten" th:field="*{laufzeitMinuten}" min="1" max="300" />
+            <input type="number" id="laufzeitMinuten" th:field="*{laufzeitMinuten}" min="5" max="999" />
             <span th:if="${#fields.hasErrors('laufzeitMinuten')}" th:errors="*{laufzeitMinuten}" class="fehler"></span>
         </div>
         <br>
@@ -45,7 +45,7 @@
             <p><strong>Bitte oben angezeigte Fehler korrigieren.</strong></p>
         </div>
         <br>
-        
+
         <button type="submit">Speichern</button>
         <button type="reset" >Zurücksetzen</button>
 
