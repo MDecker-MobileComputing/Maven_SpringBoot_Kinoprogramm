@@ -114,9 +114,11 @@ public class ThymeleafWebController {
      * @return Weiterleitung zu "neu" bei Fehlern oder im Erfolgsfall zur Übersicht
      */
     @PostMapping( "/speichern" )
-    public String speichereFormularNeueVorstellung( @ModelAttribute("vorstellung") @Valid VorstellungFormular vorstellung,
-                                                    BindingResult bindingResult,
-                                                    Model model) {
+    public String speichereFormularNeueVorstellung( 
+    					@ModelAttribute("vorstellung") @Valid VorstellungFormular vorstellung,
+                        BindingResult bindingResult,
+                        Model model) {
+    	
         if ( bindingResult.hasErrors() ) {
             
             LOG.error( "Fehler in Formulardaten fuer neue Vorstellung gefunden: {}",
