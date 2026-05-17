@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   cassandra-1:
-    image: cassandra:4.1
+    image: cassandra:5.0.8
     container_name: kinoprogramm-cassandra-1
     environment:
       - CASSANDRA_CLUSTER_NAME=KinoprogrammCluster

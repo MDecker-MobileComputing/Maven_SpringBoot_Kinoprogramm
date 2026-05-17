@@ -10,15 +10,11 @@ import java.util.List;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
-import jakarta.validation.constraints.Pattern;
-
 
 /**
  * Ein Objekt dieser Klasse enthält die Vorstellung/Filmen
  * an einem bestimmten Tag. 
  */
-
-
 @Table( "kinoprogramm" )
 public class KinoprogrammTable {
 
