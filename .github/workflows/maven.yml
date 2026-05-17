@@ -21,7 +21,7 @@ jobs:
     - name: FatJar-Datei mit Maven bauen
       run: ./mvnw --batch-mode clean package -DskipTests
     - name: FatJar-Datei veröffentlichen
-      uses: actions/upload-artifact@v8
+      uses: actions/upload-artifact@v7
       with:
         name: Kinoprogramm_FatJar
         path: target/kinoprogramm-*-SNAPSHOT.jar
