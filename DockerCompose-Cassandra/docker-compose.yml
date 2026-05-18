@@ -19,7 +19,7 @@ services:
     networks:
       - netzwerk-intern   # für Datenaustausch zwischen den Cassandra-Knoten
       - netzwerk-extern-1 # Für Zugriff von Spring-Boot-Anwendung
-    restart: unless-stopped
+    restart: "no" # Nach Neustart Docker-Dämon nicht automatisch starten
     healthcheck:
       test: ["CMD-SHELL", "cqlsh -e 'describe cluster'"]
       interval: 30s
@@ -49,7 +49,7 @@ services:
     networks:
       - netzwerk-intern  # For inter-node communication
       - netzwerk-extern-2 # For external client access
-    restart: unless-stopped
+    restart: "no" # Nach Neustart Docker-Dämon nicht automatisch starten
     healthcheck:
       test: ["CMD-SHELL", "cqlsh -e 'describe cluster'"]
       interval: 30s
