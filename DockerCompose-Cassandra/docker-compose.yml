@@ -15,7 +15,7 @@ services:
     ports:
       - "9042:9042"   # CQL native transport port
       - "7000:7000"   # Inter-node cluster communication
-      - "7001:7001"   # TLS inter-node cluster communication  
+      - "7001:7001"   # TLS inter-node cluster communication
     networks:
       - netzwerk-intern   # für Datenaustausch zwischen den Cassandra-Knoten
       - netzwerk-extern-1 # Für Zugriff von Spring-Boot-Anwendung
@@ -28,7 +28,7 @@ services:
       start_period: 60s
 
   cassandra-2:
-    image: cassandra:4.1
+    image: cassandra:5.0.8
     container_name: kinoprogramm-cassandra-2
     environment:
       - CASSANDRA_CLUSTER_NAME=KinoprogrammCluster
@@ -40,9 +40,9 @@ services:
       - MAX_HEAP_SIZE=512M
       - HEAP_NEWSIZE=100M
     ports:
-      - "9043:9042"  
-      - "7002:7000"  
-      - "7003:7001"  
+      - "9043:9042"
+      - "7002:7000"
+      - "7003:7001"
     depends_on:
       cassandra-1:
         condition: service_healthy
@@ -71,8 +71,8 @@ services:
   #   ports:
   #     - "3000:8083"
   #   networks:
-  #     - cassandra-1-network  
-  #     - cassandra-2-network  
+  #     - cassandra-1-network
+  #     - cassandra-2-network
 
 networks:
   netzwerk-intern:
@@ -81,4 +81,3 @@ networks:
     driver: bridge
   netzwerk-extern-2:
     driver: bridge
-  
